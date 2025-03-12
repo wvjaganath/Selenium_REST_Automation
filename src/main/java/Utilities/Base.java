@@ -2,17 +2,20 @@ package Utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class Base {
     public static WebDriver driver;
     public static Properties properties;
+    public static WebDriverWait wait;
 
     @BeforeClass
     public void setupApplication() {
@@ -24,7 +27,7 @@ public class Base {
         driver.manage().window().maximize();
 
         driver.get("https://magento.softwaretestingboard.com");
-
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         Reporter.log("=====Application Started=====", true);
 
         properties = new Properties();
@@ -35,6 +38,8 @@ public class Base {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AfterClass
