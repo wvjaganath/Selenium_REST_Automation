@@ -1,10 +1,8 @@
-package Pages;
+package Pages.ShoppingApp;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import static Utilities.Base.properties;
 
 public class Login {
     public WebDriver driver;

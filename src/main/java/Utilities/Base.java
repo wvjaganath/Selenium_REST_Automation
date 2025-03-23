@@ -26,7 +26,8 @@ public class Base {
 
         driver.manage().window().maximize();
 
-        driver.get("https://magento.softwaretestingboard.com");
+//        driver.get("https://magento.softwaretestingboard.com");
+        driver.get("https://the-internet.herokuapp.com/dropdown");
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
         Reporter.log("=====Application Started=====", true);
 
